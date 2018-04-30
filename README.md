@@ -148,7 +148,7 @@ GBA tutorial:
 - http://www.coranac.com/tonc/text/toc.htm
 
 GBA hardware specifications:
-- https://www.cs.rit.edu/~tjh8300/CowBite/CowBiteSpec.htm#Graphics%20Hardware%20Overview
+- https://www.cs.rit.edu/~tjh8300/CowBite/CowBiteSpec.htm
 
  
 
