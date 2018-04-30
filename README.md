@@ -49,7 +49,7 @@ cd /opt/devkitpro
 tar -xvjf <file you downloaded>
 ```
 
-Now you have to download libgba separately and ou can download it here:
+Now you have to download libgba separately and you can download it here:
 
 ```
 https://sourceforge.net/projects/devkitpro/files/libgba/libgba-20150106.tar.bz2/download
@@ -63,14 +63,14 @@ cd libgba
 tar -xvjf <libgba you downloaded>
 ```
 
-Then:
+Then for the paths:
 
 ```
 export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=$DEVKITPRO/devkitARM
 ```
 
-for the paths. (as i said before: is not strictly necessary, but if you want a well made Makefile this passage could be useful).
+(as i said before: is not strictly necessary, but if you want a well made Makefile this passage could be useful).
 
 Now you have to download the emulator for gba:
 
@@ -78,7 +78,7 @@ Now you have to download the emulator for gba:
 sudo apt-get install visualboyadvance-gtk
 ```
 
-Is possible that during the compilation you can have someproblems and a massage like this could appear:
+Is possible that during the compilation you can have some issues and a massage like this or something like this could appear:
 
 ```
 whiite:/opt/devkitpro/examples/wii# make
@@ -99,9 +99,9 @@ make[1]: Leaving directory `/opt/devkitpro/examples/wii/audio'
 make: *** [all] Error 1
 ```
 
-or something like that, then you have to download the .pl file, and you can follow the istructions described above.
+Then you have to download the .pl file, and you can follow the istructions described above.
 
-Now you have your environment to compile and run the .gba code!
+Now you have your environment to compile and run .gba code!
 
 # How to Compile:
 
@@ -127,7 +127,7 @@ arm-none-eabi-objcopy -O binary first.elf first.gba
 gbafix first.gba
 ```
 
-or, simply using the makefile. (it will work if you have exported correctly the paths of devkitpro and devkitarm):
+or, simply you can use the makefile. (it will work if you have correctly exported the paths of devkitpro and devkitarm):
 
 ```
 make
