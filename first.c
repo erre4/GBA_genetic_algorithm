@@ -1,7 +1,6 @@
 #include "toolbox.h"
 #include "drawing.h"
 
-#define KI_MAX 4
 
 inline void vid_flip(){
 	REG_DISPCNT ^= DCNT_PAGE;
