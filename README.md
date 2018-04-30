@@ -21,16 +21,20 @@ These two download are sufficient to compile the code.
 To run the code you will need of a gba emulator, i'm currently using VisualBoy advance.
 
 devkitARM is available for Mac, Windows and Linux, you can find it here:
+
 ```
 https://sourceforge.net/projects/devkitpro/
 ```
+
 I only tried the linux download and i raccomend to download the .pl file.
 
 for those who have downloaded the .pl file
 
 you can run it with:
 
-- pearl devkitARMupdate.pl
+```
+pearl devkitARMupdate.pl
+```
 
 When the download is finished you have to follow the istructions appearing on the bash to save the paths of devkitpro and devkitArm.
 This passage is not strictly necessary, but if you want a well made Makefile this passage could be useful.
@@ -40,48 +44,60 @@ for those who have downloaded the .tar file
 
 open the bash and then:
 
-- cd /opt/devkitpro
-- tar -xvjf <file you downloaded>
+```
+cd /opt/devkitpro
+tar -xvjf <file you downloaded>
+```
 
 Now you have to download libgba separately and ou can download it here:
 
-- https://sourceforge.net/projects/devkitpro/files/libgba/libgba-20150106.tar.bz2/download
+```
+https://sourceforge.net/projects/devkitpro/files/libgba/libgba-20150106.tar.bz2/download
+```
 
 then, in the devkitPro directory:
 
-- mkdir libgba
-- cd libgba
-- tar -xvjf <libgba you downloaded>
+```
+mkdir libgba
+cd libgba
+tar -xvjf <libgba you downloaded>
+```
 
 Then:
 
-- export DEVKITPRO=/opt/devkitpro
-- export DEVKITARM=$DEVKITPRO/devkitARM
+```
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=$DEVKITPRO/devkitARM
+```
 
 for the paths. (as i said before: is not strictly necessary, but if you want a well made Makefile this passage could be useful).
 
 Now you have to download the emulator for gba:
 
-- sudo apt-get install visualboyadvance-gtk
+```
+sudo apt-get install visualboyadvance-gtk
+```
 
 Is possible that during the compilation you can have someproblems and a massage like this could appear:
 
-- whiite:/opt/devkitpro/examples/wii# make
-- make[1]: Entering directory `/opt/devkitpro/examples/wii/audio'
-- make[2]: Entering directory `/opt/devkitpro/examples/wii/audio/modplay'
-- linking ... modplay.elf
-- /opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -lwiiuse
-- /opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -lbte
-- /opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -lmodplay
-- /opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -laesnd
-- /opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -logc
-- collect2: ld returned 1 exit status
-- make[3]: *** [/opt/devkitpro/examples/wii/audio/modplay/modplay.elf] Error 1
-- make[2]: *** [build] Error 2
-- make[2]: Leaving directory `/opt/devkitpro/examples/wii/audio/modplay'
-- make[1]: *** [all] Error 1
-- make[1]: Leaving directory `/opt/devkitpro/examples/wii/audio'
-- make: *** [all] Error 1
+```
+whiite:/opt/devkitpro/examples/wii# make
+make[1]: Entering directory `/opt/devkitpro/examples/wii/audio'
+make[2]: Entering directory `/opt/devkitpro/examples/wii/audio/modplay'
+linking ... modplay.elf
+/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -lwiiuse
+/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -lbte
+/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -lmodplay
+/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -laesnd
+/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -logc
+collect2: ld returned 1 exit status
+make[3]: *** [/opt/devkitpro/examples/wii/audio/modplay/modplay.elf] Error 1
+make[2]: *** [build] Error 2
+make[2]: Leaving directory `/opt/devkitpro/examples/wii/audio/modplay'
+make[1]: *** [all] Error 1
+make[1]: Leaving directory `/opt/devkitpro/examples/wii/audio'
+make: *** [all] Error 1
+```
 
 or something like that, then you have to download the .pl file, and you can follow the istructions described above.
 
@@ -91,26 +107,36 @@ Now you have your environment to compile and run the .gba code!
 
 during the compilation you can type the following lines on the bash:
 
-- # Compile first.c to first.o
-- arm-none-eabi-gcc -mthumb -mthumb-interwork -c first.c
-- 
-- # Link first.o (and standard libs) to first.elf
-- arm-none-eabi-gcc -specs=gba.specs -mthumb -mthumb-interwork first.o -o first.elf
-- 
-- # Strip to binary-only
-- arm-none-eabi-objcopy -O binary first.elf first.gba
-- 
-- # Fix header
-- gbafix first.gba
+- Compile first.c to first.o
+```
+arm-none-eabi-gcc -mthumb -mthumb-interwork -c first.c
+``` 
+- Link first.o (and standard libs) to first.elf
+
+```
+arm-none-eabi-gcc -specs=gba.specs -mthumb -mthumb-interwork first.o -o first.elf
+```
+
+- Strip to binary-only
+```
+arm-none-eabi-objcopy -O binary first.elf first.gba
+```
+
+- Fix header
+```
+gbafix first.gba
+```
 
 or, simply using the makefile. (it will work if you have exported correctly the paths of devkitpro and devkitarm):
 
-- make
-
+```
+make
+```
 # How to run
 
-- gvba first.gba
-
+```
+gvba first.gba
+```
 
 
 
