@@ -2,6 +2,8 @@
 This report provides a simple code for a little 2Dshooting game runnable on a GBA emulator and devices supplied with gba cartridge readers.
 The enemy in the game has been trained with a NEAT algorithm on a computer.
 
+No sprite or tiles are used, but for the simplicity of the graphics has been used the mode_4
+
 Work in progress...
 
 # Setting Up the Environment:
