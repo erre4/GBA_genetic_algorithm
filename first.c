@@ -1,6 +1,12 @@
 #include "toolbox.h"
 #include "drawing.h"
 
+/*speed should not be changed*/
+#define SPEED 2
+#define SIZE 6
+#define FRAME 7
+#define PLAYER_SPAWN 65
+#define CPU_SPAWN 180
 
 inline void vid_flip(){
 	REG_DISPCNT ^= DCNT_PAGE;
@@ -11,9 +17,9 @@ inline void drawing_up(int* x1, int* x2, int* y1, int* y2, int* k){
 		*y1-=2;
 		*y2-=2;
 		
-		m4_fully_rectangle(*x1,*y1,*x1+2,*y2,1);
-		m4_fully_rectangle(*x2-2,*y1,*x2,*y2,1);
-		m4_fully_rectangle(*x1+2,*y1,*x2-2,*y1+4,1);
+		m4_fully_rectangle(*x1,*y1,*x1+SPEED,*y2,1);
+		m4_fully_rectangle(*x2-SPEED,*y1,*x2,*y2,1);
+		m4_fully_rectangle(*x1+SPEED,*y1,*x2-SPEED,*y1+2*SPEED,1);
 		
 		vid_flip();
 		
@@ -23,9 +29,9 @@ inline void drawing_up(int* x1, int* x2, int* y1, int* y2, int* k){
 		*k = *k ^ 1;
 		
 		
-		m4_fully_rectangle(*x1,*y2-1,*x2,*y2+2,0);
-		m4_fully_rectangle(*x1,*y1+2,*x1+1,*y2-2,0);
-		m4_fully_rectangle(*x2-1,*y1+2,*x2,*y2-2,0);
+		m4_fully_rectangle(*x1,*y2-(SPEED-1),*x2,*y2+SPEED,0);
+		m4_fully_rectangle(*x1,*y1+SPEED,*x1+(SPEED-1),*y2-SPEED,0);
+		m4_fully_rectangle(*x2-(SPEED-1),*y1+SPEED,*x2,*y2-SPEED,0);
 }
 
 inline void drawing_down(int* x1, int* x2, int* y1, int* y2, int* k){
@@ -33,9 +39,9 @@ inline void drawing_down(int* x1, int* x2, int* y1, int* y2, int* k){
 		*y1+=2;
 		*y2+=2;
 		
-		m4_fully_rectangle(*x1,*y1,*x1+2,*y2,1);
-		m4_fully_rectangle(*x2-2,*y1,*x2,*y2,1);
-		m4_fully_rectangle(*x1+2,*y2-4,*x2-2,*y2,1);
+		m4_fully_rectangle(*x1,*y1,*x1+SPEED,*y2,1);
+		m4_fully_rectangle(*x2-SPEED,*y1,*x2,*y2,1);
+		m4_fully_rectangle(*x1+SPEED,*y2-2*SPEED,*x2-SPEED,*y2,1);
 		
 		vid_flip();
 		
@@ -45,9 +51,9 @@ inline void drawing_down(int* x1, int* x2, int* y1, int* y2, int* k){
 		*k = *k ^ 1;
 		
 		
-		m4_fully_rectangle(*x1,*y1-2,*x2,*y1+1,0);
-		m4_fully_rectangle(*x1,*y1+2,*x1+1,*y2-2,0);
-		m4_fully_rectangle(*x2-1,*y1+2,*x2,*y2-2,0);
+		m4_fully_rectangle(*x1,*y1-SPEED,*x2,*y1+(SPEED-1),0);
+		m4_fully_rectangle(*x1,*y1+SPEED,*x1+(SPEED-1),*y2-SPEED,0);
+		m4_fully_rectangle(*x2-(SPEED-1),*y1+SPEED,*x2,*y2-SPEED,0);
 }
 
 inline void drawing_left(int* x1, int* x2, int* y1, int* y2, int* k){
@@ -55,9 +61,9 @@ inline void drawing_left(int* x1, int* x2, int* y1, int* y2, int* k){
 		*x1-=2;
 		*x2-=2;
 		
-		m4_fully_rectangle(*x1,*y1,*x2,*y1+2,1);
-		m4_fully_rectangle(*x1,*y2-2,*x2,*y2,1);
-		m4_fully_rectangle(*x1,*y1+2,*x1+4,*y2-2,1);
+		m4_fully_rectangle(*x1,*y1,*x2,*y1+SPEED,1);
+		m4_fully_rectangle(*x1,*y2-SPEED,*x2,*y2,1);
+		m4_fully_rectangle(*x1,*y1+SPEED,*x1+(SPEED*2),*y2-SPEED,1);
 		
 		vid_flip();
 		
@@ -67,9 +73,9 @@ inline void drawing_left(int* x1, int* x2, int* y1, int* y2, int* k){
 		*k = *k ^ 1;
 		
 		
-		m4_fully_rectangle(*x2-1,*y1,*x2+2,*y2,0);
-		m4_fully_rectangle(*x1+2,*y1,*x2-2,*y1+1,0);
-		m4_fully_rectangle(*x1+2,*y2-1,*x2-2,*y2,0);
+		m4_fully_rectangle(*x2-(SPEED-1),*y1,*x2+SPEED,*y2,0);
+		m4_fully_rectangle(*x1+SPEED,*y1,*x2-SPEED,*y1+(SPEED-1),0);
+		m4_fully_rectangle(*x1+SPEED,*y2-(SPEED-1),*x2-SPEED,*y2,0);
 }
 
 inline void drawing_right(int* x1, int* x2, int* y1, int* y2, int* k){
@@ -77,9 +83,9 @@ inline void drawing_right(int* x1, int* x2, int* y1, int* y2, int* k){
 		*x1+=2;
 		*x2+=2;
 		
-		m4_fully_rectangle(*x1,*y1,*x2,*y1+2,1);
-		m4_fully_rectangle(*x1,*y2-2,*x2,*y2,1);
-		m4_fully_rectangle(*x2-4,*y1+2,*x2,*y2-2,1);
+		m4_fully_rectangle(*x1,*y1,*x2,*y1+SPEED,1);
+		m4_fully_rectangle(*x1,*y2-SPEED,*x2,*y2,1);
+		m4_fully_rectangle(*x2-2*SPEED,*y1+SPEED,*x2,*y2-SPEED,1);
 		
 		vid_flip();
 		
@@ -89,15 +95,16 @@ inline void drawing_right(int* x1, int* x2, int* y1, int* y2, int* k){
 		*k = *k ^ 1;
 		
 		
-		m4_fully_rectangle(*x1-2,*y1,*x1+1,*y2,0);
-		m4_fully_rectangle(*x1+2,*y1,*x2-2,*y1+1,0);
-		m4_fully_rectangle(*x1+2,*y2-1,*x2-2,*y2,0);
+		m4_fully_rectangle(*x1-SPEED,*y1,*x1+(SPEED-1),*y2,0);
+		m4_fully_rectangle(*x1+SPEED,*y1,*x2-SPEED,*y1+(SPEED-1),0);
+		m4_fully_rectangle(*x1+SPEED,*y2-(SPEED-1),*x2-SPEED,*y2,0);
 }
 
 int main()
 {
+	if(PLAYER_SPAWN<0 || PLAYER_SPAWN+SIZE > SCREEN_HEIGHT || CPU_SPAWN < 0 || CPU_SPAWN+SIZE > SCREEN_HEIGHT || SPEED != 2) exit(1);
 	
-    int x1 = 65, x2 = 75, y1 = 65, y2 = 75, k = 0, frame;
+    int x1 = PLAYER_SPAWN, x2 = x1+SIZE, y1 = PLAYER_SPAWN, y2 = y1+SIZE, k = 0, frame;
     
     
 	/*activating mode 4*/
@@ -114,7 +121,7 @@ int main()
     vid_page = vid_second_mem;
     
     /*drawing a fully red rectangle on second page*/
-    m4_fully_rectangle(x1+2,y1+2,x2-2,y2-2,1);
+    m4_fully_rectangle(x1+SPEED,y1+SPEED,x2-SPEED,y2-SPEED,1);
     
     while(1){
         vid_vsync();
@@ -129,7 +136,7 @@ int main()
 			drawing_up(&x1, &x2, &y1, &y2, &k);
 			
 		else if(key_held(KEY_UP) && y1>1){
-			for(frame = 0; frame < 7; frame++);
+			for(frame = 0; frame < FRAME; frame++);
 			drawing_up(&x1, &x2, &y1, &y2, &k);
 		}
 		
@@ -138,7 +145,7 @@ int main()
 			drawing_down(&x1, &x2, &y1, &y2, &k);
 			
 		else if(key_held(KEY_DOWN) && y2<159){
-			for(frame = 0; frame < 7; frame++);
+			for(frame = 0; frame < FRAME; frame++);
 			drawing_down(&x1, &x2, &y1, &y2, &k);
 		}
 		
@@ -147,7 +154,7 @@ int main()
 			drawing_left(&x1, &x2, &y1, &y2, &k);
 			
 		else if(key_held(KEY_LEFT) && x1>1){
-			for(frame = 0; frame < 7; frame++);
+			for(frame = 0; frame < FRAME; frame++);
 			drawing_left(&x1, &x2, &y1, &y2, &k);
 		}
 		
@@ -155,8 +162,8 @@ int main()
         
 			drawing_right(&x1, &x2, &y1, &y2, &k);
 			
-		else if(key_held(KEY_RIGHT) && x1<239){
-			for(frame = 0; frame < 7; frame++);
+		else if(key_held(KEY_RIGHT) && x2<239){
+			for(frame = 0; frame < FRAME; frame++);
 			drawing_right(&x1, &x2, &y1, &y2, &k);
 		}		
 		 
