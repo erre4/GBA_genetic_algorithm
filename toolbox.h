@@ -54,14 +54,6 @@ INLINE void key_poll()
     __key_curr= ~REG_KEYINPUT & KEY_MASK;
 }
 
-// Basic state checks
-INLINE u32 key_curr_state()         {   return __key_curr;          }
-INLINE u32 key_prev_state()         {   return __key_prev;          }
-INLINE u32 key_is_down(u32 key)     {   return  __key_curr & key;   }
-INLINE u32 key_is_up(u32 key)       {   return ~__key_curr & key;   }
-INLINE u32 key_was_down(u32 key)    {   return  __key_prev & key;   }
-INLINE u32 key_was_up(u32 key)      {   return ~__key_prev & key;   }
-
 
 // Transitional state checks.
 
@@ -105,12 +97,9 @@ INLINE u32 key_released(u32 key)
 #define vid_mem  ((u16*)MEM_VRAM)
 #define vid_second_mem ((u16*)MEM_VRAM_2ND_PAGE)
 
-/*plotting a dot of a pixel with mode 3(16bpp)*/
-INLINE void m3_plot(int x, int y, COLOR clr)
-{   vid_mem[y*SCREEN_WIDTH+x]= clr;    }
 
 
-u16 *vid_page= vid_mem;     // Point to current frame buffer
+u16 *vid_page = vid_mem;     // Point to current frame buffer
 
 /*plotting a dot of a pixel with mode 4(8bpp)*/
 INLINE void m4_plot(int x, int y, u8 clrid)
