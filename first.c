@@ -3,17 +3,28 @@
 
 /*speed should not be changed*/
 #define SPEED 2
-#define SIZE 6
+#define PLAYER_SIZE 6
+#define BULLET_SIZE 2
 #define FRAME 7
 #define PLAYER_SPAWN 65
-#define CPU_SPAWN 180
+#define CPU_SPAWN 140
+#define BULLETS 10
 
+
+
+//BULLET DIRECTIONS
+/* up = 1
+ * down = -1
+ * right = 2
+ * left = -2
+ * */
+ 
 inline void vid_flip(){
 	REG_DISPCNT ^= DCNT_PAGE;
 }
 
+
 inline void drawing_up(int* x1, int* x2, int* y1, int* y2, int* k){
-	
 		*y1-=2;
 		*y2-=2;
 		
@@ -102,9 +113,9 @@ inline void drawing_right(int* x1, int* x2, int* y1, int* y2, int* k){
 
 int main()
 {
-	if(PLAYER_SPAWN<0 || PLAYER_SPAWN+SIZE > SCREEN_HEIGHT || CPU_SPAWN < 0 || CPU_SPAWN+SIZE > SCREEN_HEIGHT || SPEED != 2) exit(1);
+	if(PLAYER_SPAWN<0 || PLAYER_SPAWN+PLAYER_SIZE > SCREEN_HEIGHT || CPU_SPAWN < 0 || CPU_SPAWN+PLAYER_SIZE > SCREEN_HEIGHT || SPEED != 2) return 1;
 	
-    int x1 = PLAYER_SPAWN, x2 = x1+SIZE, y1 = PLAYER_SPAWN, y2 = y1+SIZE, k = 0, frame;
+    int x1 = PLAYER_SPAWN, x2 = x1+PLAYER_SIZE, y1 = PLAYER_SPAWN, y2 = y1+PLAYER_SIZE, k = 0, frame;
     
     
 	/*activating mode 4*/
