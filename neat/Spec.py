@@ -104,7 +104,9 @@ class Spec:
 						excess = self.getExcess(genomes[i].links,genomes[j].links)
 						disjoint = self.getDisjoint(genomes[i].links,genomes[j].links)
 						w = self.getWAvarage(genomes[i].links,genomes[j].links)
-						n = self.getMaxSize(genomes[i].links,genomes[j].links)
+						n = self.getMaxSize(genomes[i].links,genomes[j].links) - 20
+						if(n<=0):
+							n = 1
 						delta = self.c1*excess/n + self.c2*disjoint/n +self.c3*w
 						if(delta < self.thereshold):
 							places[i] = 1
@@ -116,3 +118,5 @@ class Spec:
 						matrix.append([genomes[i])
 						
 		return matrix
+
+    
