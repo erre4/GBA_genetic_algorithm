@@ -97,26 +97,26 @@ class Spec:
         places = [0] * length
 
         for i in range(0,length-1):
-			if(places[i] == 0):
-				for j in range(i+1, length):
-					
-					if(places[j] == 0):
-						excess = self.getExcess(genomes[i].links,genomes[j].links)
-						disjoint = self.getDisjoint(genomes[i].links,genomes[j].links)
-						w = self.getWAvarage(genomes[i].links,genomes[j].links)
-						n = self.getMaxSize(genomes[i].links,genomes[j].links) - 20
-						if(n<=0):
-							n = 1
-						delta = self.c1*excess/n + self.c2*disjoint/n +self.c3*w
-						if(delta < self.thereshold):
-							places[i] = 1
-							places[j] = 1
-							matrix.append([genomes[i],genomes[j])
-						
-					if(places[i] == 0 and j == length-1):
-						places[i] = 1
-						matrix.append([genomes[i])
-						
-		return matrix
+            if(places[i] == 0):
+                for j in range(i+1, length):
+                    
+                    if(places[j] == 0):
+                        excess = self.getExcess(genomes[i].links,genomes[j].links)
+                        disjoint = self.getDisjoint(genomes[i].links,genomes[j].links)
+                        w = self.getWAvarage(genomes[i].links,genomes[j].links)
+                        n = self.getMaxSize(genomes[i].links,genomes[j].links) - 20
+                        if(n<=0):
+                            n = 1
+                        delta = self.c1*excess/n + self.c2*disjoint/n +self.c3*w
+                        if(delta < self.thereshold):
+                            places[i] = 1
+                            places[j] = 1
+                            matrix.append([genomes[i],genomes[j])
+                        
+                    if(places[i] == 0 and j == length-1):
+                        places[i] = 1
+                        matrix.append([genomes[i])
+                        
+        return matrix
 
     
