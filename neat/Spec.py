@@ -111,11 +111,11 @@ class Spec:
                         if(delta < self.thereshold):
                             places[i] = 1
                             places[j] = 1
-                            matrix.append([genomes[i],genomes[j])
+                            matrix.append([genomes[i],genomes[j]])
                         
                     if(places[i] == 0 and j == length-1):
                         places[i] = 1
-                        matrix.append([genomes[i])
+                        matrix.append([genomes[i]])
                         
         return matrix
 
