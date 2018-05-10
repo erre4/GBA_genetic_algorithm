@@ -113,32 +113,15 @@ class Spec:
                     else:
                         places[j] = places[i]
                         matrix[places[i]-1].append(genomes[j])
-				
-				elif(delta > self.thereshold and j == length-1):
-					if(places[i] == 0):
+                
+                elif(delta > self.thereshold and j == length-1):
+                    if(places[i] == 0):
                         counter += 1
                         places[i] = counter
                         matrix.append([genomes[i])
-						
-		return matrix
-		
-	
-	def setC1(self,var):
-		
-		self.c1 = var
-	
-	def setC2(self,var):
-		
-		self.c2 = var
-	
-	def setC3(self,var):
-	
-		self.c3 = var
-	
-	def setThereshold(self,var):
-	
-		self.thereshold = var
-                                      
+                        
+        return matrix
+        
 
 
     
