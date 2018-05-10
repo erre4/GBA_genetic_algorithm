@@ -43,7 +43,7 @@ def best_genomes(remaining_genomes, species_matrix):
                             maximum = len(best_matrix[k])
                             index = k
                         elif len(best_matrix[k]) == maximum:
-                            if best_matrix[k][len(best_matrix[k])-1].fitness < best_matrix[index][len(best_matrix[index])-1].fitness:
+                            if best_matrix[k][-1].fitness < best_matrix[index][-1].fitness:
                                 index = k
                             
                     if(maximum == 1 and len(best_matrix[i]) == 0):        
@@ -51,6 +51,6 @@ def best_genomes(remaining_genomes, species_matrix):
                             best_matrix[index][0] = []
                             best_matrix[i].append(species_matrix[i][length-(j+1)])
                             
-                    elif(len(best_matrix[i]) < maximum and species_matrix[i][length-(j+1)].fitness > best_matrix[index][len(best_matrix[index])-1].fitness):
+                    elif(len(best_matrix[i]) < maximum and species_matrix[i][length-(j+1)].fitness > best_matrix[index][-1].fitness):
                         best_matrix[index] = best_matrix[0:len(best_matrix[index])]
                         best_matrix[i].append(species_matrix[i][length-(j+1)])
