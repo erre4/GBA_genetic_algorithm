@@ -9,7 +9,7 @@ class Link:
         self.enabled        = True
         self.innovation_num = innovation_num
     
-    def mutate(self):
+    def mutate_weight(self):
         """
         mutate the weight in place, following the paper
         """

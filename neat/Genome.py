@@ -52,7 +52,10 @@ class Genome:
         g = deepcopy(self)    #new genome to be muted and returned
         
         if random() < 0.8:    #mutate all weights with 80% prob
-            map(lambda link: link.mutate(), g.links)
+            map(lambda link: link.mutate_weight(), g.links)
+		
+		if random() < 0.8:
+			map(lambda node: node.mutate_bias(), self.flat_node_list())
         
         if random() < 0.05:    #add new link with 5% prob
             g.add_link(link_history)
@@ -101,7 +104,7 @@ class Genome:
         n1, n2 = link.from_node, link.to_node        
         
         #assert
-        nodes = [node for layer in self.nodes for node in layer]
+        nodes = self.flat_node_list()
         if not n1 in nodes or not n2 in nodes:
             raise Exception("mezzo porcoddio")
         #end assert
@@ -140,6 +143,9 @@ class Genome:
         funzione bruzza che stampa a schermo piu o meno come appare la rete
         """
         pass
+		
+	def flat_node_list(self):
+		return [node for layer in self.nodes for node in layer]
 
     def feed_forward(self, inputs):
         return list(self._feed_forward(inputs))
