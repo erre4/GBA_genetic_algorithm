@@ -35,22 +35,22 @@ def best_genomes(remaining_genomes, species_matrix):
                     best_matrix[i].append(species_matrix[i][length-(j+1)])
                 
                 else:
-                    max = 0
+                    maximum = 0
                     index = -1
-                    min = 9999999
+                    minimum = 9999999
                     for k in range(0,i):
-                        if len(best_matrix[k]) > max:
-                            max = len(best_matrix[k])
+                        if len(best_matrix[k]) > maximum:
+                            maximum = len(best_matrix[k])
                             index = k
-                        elif len(best_matrix[k]) == max:
+                        elif len(best_matrix[k]) == maximum:
                             if best_matrix[k][len(best_matrix[k])-1].fitness < best_matrix[index][len(best_matrix[index])-1].fitness:
                                 index = k
                             
-                    if(max == 1 and len(best_matrix[i]) == 0):        
-                        if(species_matrix[i][length-(j+1)].fitness > min):
+                    if(maximum == 1 and len(best_matrix[i]) == 0):        
+                        if(species_matrix[i][length-(j+1)].fitness > minimum):
                             best_matrix[index][0] = []
                             best_matrix[i].append(species_matrix[i][length-(j+1)])
                             
-                    elif(len(best_matrix[i]) < max and species_matrix[i][length-(j+1)].fitness > best_matrix[index][len(best_matrix[index])-1].fitness):
+                    elif(len(best_matrix[i]) < maximum and species_matrix[i][length-(j+1)].fitness > best_matrix[index][len(best_matrix[index])-1].fitness):
                         best_matrix[index] = best_matrix[0:len(best_matrix[index])]
                         best_matrix[i].append(species_matrix[i][length-(j+1)])
