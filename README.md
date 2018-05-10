@@ -107,7 +107,7 @@ Now you have your environment to compile and run .gba code!
 
 # The algorithm:
 
-The algorithm used is NEAT, a genetic algorithm implemented in python. in neat directory you can actually see the modules to run and train a genetic network.
+The algorithm used is NEAT, a genetic algorithm implemented in python. In neat directory you can actually see the modules to run and train a genetic network.
 
 # How to Compile C code:
 
