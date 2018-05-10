@@ -122,19 +122,3 @@ class Spec:
 						
 		return matrix
 		
-	
-	def setC1(self,var):
-		
-		self.c1 = var
-	
-	def setC2(self,var):
-		
-		self.c2 = var
-	
-	def setC3(self,var):
-	
-		self.c3 = var
-	
-	def setThereshold(self,var):
-	
-		self.thereshold = var
