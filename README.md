@@ -105,7 +105,11 @@ Then you have to download the .pl file, and you can follow the istructions descr
 
 Now you have your environment to compile and run .gba code!
 
-# How to Compile:
+# The algorithm:
+
+The algorithm used is NEAT, a genetic algorithm implemented in python. in neat directory you can actually see the modules to run and train a genetic network.
+
+# How to Compile C code:
 
 during the compilation you can type the following lines on the bash:
 
@@ -134,7 +138,7 @@ or, simply you can use the makefile. (it will work if you have correctly exporte
 ```
 make
 ```
-# How to run
+# How to run .gba
 
 ```
 gvba first.gba
@@ -150,5 +154,7 @@ GBA tutorial:
 GBA hardware specifications:
 - https://www.cs.rit.edu/~tjh8300/CowBite/CowBiteSpec.htm
 
- 
+NEAT algorithm paper_
+
+- http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf
 
