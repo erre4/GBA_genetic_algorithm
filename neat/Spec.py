@@ -109,7 +109,7 @@ class Spec:
                         counter += 1
                         places[i] = counter
                         places[j] = counter
-                        matrix.append([genomes[i],genomes[j])
+                        matrix.append([genomes[i],genomes[j]])
                     else:
                         places[j] = places[i]
                         matrix[places[i]-1].append(genomes[j])
@@ -118,7 +118,7 @@ class Spec:
                     if(places[i] == 0):
                         counter += 1
                         places[i] = counter
-                        matrix.append([genomes[i])
+                        matrix.append([genomes[i]])
                         
         return matrix
         
