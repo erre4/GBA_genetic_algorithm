@@ -23,7 +23,7 @@ def adjusted_fitness(species_matrix):
     return species_matrix
 
 
-def better_genomes(remaining_genomes, species_matrix):
+def best_genomes(remaining_genomes, species_matrix):
     best_matrix = []
     counter = 0
     for i in range(0,len(species_matrix)):
