@@ -154,7 +154,7 @@ GBA tutorial:
 GBA hardware specifications:
 - https://www.cs.rit.edu/~tjh8300/CowBite/CowBiteSpec.htm
 
-NEAT algorithm paper_
+NEAT algorithm paper
 
 - http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf
 
