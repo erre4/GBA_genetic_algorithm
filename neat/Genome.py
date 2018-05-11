@@ -1,9 +1,9 @@
 import random import random, randint, choice, sample
-from numpy import inf
 from math import exp
 from copy import deepcopy
 
 from Link import Link
+from in_utili import *
 
 
 
@@ -220,14 +220,8 @@ class Genome:
 	
 		
 	
-	
-    # utilities inutyli        
-    def display(self):
-        """
-        funzione bruzza che stampa a schermo piu o meno come appare la rete
-        """
-        pass
 
+	# wrapper & monnezz
     def feed_forward(self, inputs):
         output = list(self._feed_forward(inputs))
 		map(lambda l: l.input_sum=0, self.links)	#resets input sum of the links
@@ -238,11 +232,7 @@ class Genome:
 		return self.links[-1].to_layer+1
 
 
-def relu(x):
-    return max(0, x)
-    
-def sigm(x):
-    return 1/(1+exp(-x))
+
 
 
 
