@@ -42,67 +42,6 @@ When the download is finished you have to follow the istructions appearing on th
 This passage is not strictly necessary, but if you want a well made Makefile this passage could be useful.
 The .pl file already contains everything needed for compiling, even libgba
 
-for those who have downloaded the .tar file
-
-open the bash and then:
-
-```
-cd /opt/devkitpro
-tar -xvjf <file you downloaded>
-```
-
-Now you have to download libgba separately and you can download it here:
-
-```
-https://sourceforge.net/projects/devkitpro/files/libgba/libgba-20150106.tar.bz2/download
-```
-
-then, in the devkitPro directory:
-
-```
-mkdir libgba
-cd libgba
-tar -xvjf <libgba you downloaded>
-```
-
-Then for the paths:
-
-```
-export DEVKITPRO=/opt/devkitpro
-export DEVKITARM=$DEVKITPRO/devkitARM
-```
-
-(as i said before: is not strictly necessary, but if you want a well made Makefile this passage could be useful).
-
-Now you have to download the emulator for gba:
-
-```
-sudo apt-get install visualboyadvance-gtk
-```
-
-Is possible that during the compilation you can have some issues and a massage like this or something like this could appear:
-
-```
-whiite:/opt/devkitpro/examples/wii# make
-make[1]: Entering directory `/opt/devkitpro/examples/wii/audio'
-make[2]: Entering directory `/opt/devkitpro/examples/wii/audio/modplay'
-linking ... modplay.elf
-/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -lwiiuse
-/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -lbte
-/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -lmodplay
-/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -laesnd
-/opt/devkitpro/devkitPPC/lib/gcc/powerpc-eabi/4.6.3/../../../../powerpc-eabi/bin/ld: cannot find -logc
-collect2: ld returned 1 exit status
-make[3]: *** [/opt/devkitpro/examples/wii/audio/modplay/modplay.elf] Error 1
-make[2]: *** [build] Error 2
-make[2]: Leaving directory `/opt/devkitpro/examples/wii/audio/modplay'
-make[1]: *** [all] Error 1
-make[1]: Leaving directory `/opt/devkitpro/examples/wii/audio'
-make: *** [all] Error 1
-```
-
-Then you have to download the .pl file, and you can follow the istructions described above.
-
 Now you have your environment to compile and run .gba code!
 
 # The algorithm:
