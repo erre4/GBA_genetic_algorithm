@@ -16,7 +16,7 @@ class Game:
         self.player2_resize = 1
         self.player1_lifepoints = 5
         self.player2_lifepoints = 5
-        #player_size is half bullets size
+        #player_size is half player size
         self.players_size = 5
         #bullets_size is half bullets size
         self.bullets_size = 2
