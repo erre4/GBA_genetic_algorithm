@@ -181,14 +181,12 @@ class Genome:
 				l.to_link.append(new_link)
 				
 		self.links.append(new_link)
-				
+		self.links.sort(key=lambda l: l.from_layer)
 		
 		
-			
 		
-				
-			
 		
+
         
         
     def add_node(self, link_history):
