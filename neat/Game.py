@@ -20,7 +20,7 @@ class Game:
             
             new_mutations = []
             j = 0
-            for i in range(0, self.total_population-initial_population):
+            for i in range(0, self.total_population-self.initial_population):
             
                 new_mutations.append(self.genomes[j].mutate())
                 
