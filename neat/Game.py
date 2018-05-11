@@ -12,7 +12,7 @@ class Game:
             self.genomes = []
             
             for i in range(0,initial_population):
-                self.genomes.append(Genome(n_inputs, n_outputs)
+                self.genomes.append(Genome(n_inputs, n_outputs))
             
             
         
