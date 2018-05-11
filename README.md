@@ -24,9 +24,9 @@ To run the code you will need of a gba emulator, i'm currently using VisualBoy a
 
 devkitARM is available for Mac, Windows and Linux, you can find it here:
 
-```
-https://sourceforge.net/projects/devkitpro/
-```
+
+- https://sourceforge.net/projects/devkitpro/
+
 
 I only tried the linux download and i raccomend to download the .pl file.
 
