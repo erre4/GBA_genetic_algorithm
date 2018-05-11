@@ -224,84 +224,85 @@ class Game:
                         self.player2_bullets.append([self.player2_position[0] + self.player2_resize*self.player_size + self.bullet_size + 1][self.player2_position[1]][4])
                         self.bullet_hits_player(player,self.player2_bullets[-1])
                         
-        def bullet_hits_player(self,player,bullet):
-            
-            enemy = -player
-            if(enemy > 0):
-            
-                for i in range(0,self.bullet_size + 1):
-                    if(bullet[0] + i >= self.player1_position[0] - self.player1_resize*self.player_size and bullet[0] + i <= self.player1_position[0] + self.player1_resize*self.player_size):
-                        if (bullet[1] + i >= self.player1_position[1] - self.player1_resize*self.player_size and bullet[1] + i <= self.player1_position[1] + self.player1_resize*self.player_size):
-                            self.player1_lifepoints -= 1
-                            self.player1_bullets.remove(bullet)
-                            break
-                    
-                    if (bullet[0] - i >= self.player1_position[0] - self.player1_resize*self.player_size and bullet[0] - i <= self.player1_position[0] + self.player1_resize*self.player_size):
-                        if (bullet[1] - i >= self.player1_position[1] - self.player1_resize*self.player_size and bullet[1] - i <= self.player1_position[1] + self.player1_resize*self.player_size):
-                            self.player1_lifepoints -= 1
-                            self.player1_bullets.remove(bullet)
-                            break
-                        
-                    
-                        
-                    
-            else:
-                for i in range(0,self.bullet_size + 1):
-                    if(bullet[0] + i >= self.player2_position[0] - self.player2_resize*self.player_size and bullet[0] + i <= self.player2_position[0] + self.player2_resize*self.player_size):
-                        if (bullet[1] + i >= self.player2_position[1] - self.player2_resize*self.player_size and bullet[1] + i <= self.player2_position[1] + self.player2_resize*self.player_size):
-                            self.player2_lifepoints -= 1
-                            self.player2_bullets.remove(bullet)
-                            break
-                    
-                    if (bullet[0] - i >= self.player2_position[0] - self.player2_resize*self.player_size and bullet[0] - i <= self.player2_position[0] + self.player2_resize*self.player_size):
-                        if (bullet[1] - i >= self.player2_position[1] - self.player2_resize*self.player_size and bullet[1] - i <= self.player2_position[1] + self.player2_resize*self.player_size):
-                            self.player2_lifepoints -= 1
-                            self.player2_bullets.remove(bullet)
-                            break
-                        
-                    
-                        
-                    
-                        
-        
-        def player_takes_life(self,player):
-        
-            if(player > 0):
-                for i in range(0,self.life_size + 1):
-                    if(self.life_position[0] + i >= self.player1_position[0] - self.player1_resize*self.player_size and self.life_position[0] + i <= self.player1_position[0] + self.player1_resize*self.player_size):
-                        if (self.life_position[1] + i >= self.player1_position[1] - self.player1_resize*self.player_size and self.life_position[1] + i <= self.player1_position[1] + self.player1_resize*self.player_size):
-                            self.player1_lifepoints += 1
-                            return True
-                    
-                    if (self.life_position[0] - i >= self.player1_position[0] - self.player1_resize*self.player_size and self.life_position[0] - i <= self.player1_position[0] + self.player1_resize*self.player_size):
-                        if (self.life_position[1] - i >= self.player1_position[1] - self.player1_resize*self.player_size and self.life_position[1] - i <= self.player1_position[1] + self.player1_resize*self.player_size):
-                            self.player1_lifepoints += 1
-                            return True
-            else:
-                for i in range(0,self.life_size + 1):
-                    if(self.life_position[0] + i >= self.player2_position[0] - self.player2_resize*self.player_size and self.life_position[0] + i <= self.player2_position[0] + self.player2_resize*self.player_size):
-                        if (self.life_position[1] + i >= self.player2_position[1] - self.player2_resize*self.player_size and self.life_position[1] + i <= self.player2_position[1] + self.player2_resize*self.player_size):
-                            self.player2_lifepoints += 1
-                            return True
-                    
-                    if (self.life_position[0] - i >= self.player2_position[0] - self.player2_resize*self.player_size and self.life_position[0] - i <= self.player2_position[0] + self.player2_resize*self.player_size):
-                        if (self.life_position[1] - i >= self.player2_position[1] - self.player2_resize*self.player_size and self.life_position[1] - i <= self.player2_position[1] + self.player2_resize*self.player_size):
-                            self.player2_lifepoints += 1
-                            return True
        
-            return False    
-                
-        def player_resize(self,player):
-            if(player > 0):
-                if (self.player1_resize == 1):
-                    self.player1_resize = 2
-                else:
-                    self.player1_resize = 1
-            else:
-                if (self.player2_resize == 1):
-                    self.player2_resize = 2
-                else:
-                    self.player2_resize = 1
+	def bullet_hits_player(self,player,bullet):
+            
+        enemy = -player
+        if(enemy > 0):
+         
+            for i in range(0,self.bullet_size + 1):
+                if(bullet[0] + i >= self.player1_position[0] - self.player1_resize*self.player_size and bullet[0] + i <= self.player1_position[0] + self.player1_resize*self.player_size):
+                    if (bullet[1] + i >= self.player1_position[1] - self.player1_resize*self.player_size and bullet[1] + i <= self.player1_position[1] + self.player1_resize*self.player_size):
+                        self.player1_lifepoints -= 1
+                        self.player1_bullets.remove(bullet)
+                        break
+                    
+                if (bullet[0] - i >= self.player1_position[0] - self.player1_resize*self.player_size and bullet[0] - i <= self.player1_position[0] + self.player1_resize*self.player_size):
+                    if (bullet[1] - i >= self.player1_position[1] - self.player1_resize*self.player_size and bullet[1] - i <= self.player1_position[1] + self.player1_resize*self.player_size):
+                        self.player1_lifepoints -= 1
+                        self.player1_bullets.remove(bullet)
+                        break
+                        
+                    
+                        
+                    
+        else:
+            for i in range(0,self.bullet_size + 1):
+                if(bullet[0] + i >= self.player2_position[0] - self.player2_resize*self.player_size and bullet[0] + i <= self.player2_position[0] + self.player2_resize*self.player_size):
+                    if (bullet[1] + i >= self.player2_position[1] - self.player2_resize*self.player_size and bullet[1] + i <= self.player2_position[1] + self.player2_resize*self.player_size):
+                        self.player2_lifepoints -= 1
+                        self.player2_bullets.remove(bullet)
+                        break
+                    
+                if (bullet[0] - i >= self.player2_position[0] - self.player2_resize*self.player_size and bullet[0] - i <= self.player2_position[0] + self.player2_resize*self.player_size):
+                    if (bullet[1] - i >= self.player2_position[1] - self.player2_resize*self.player_size and bullet[1] - i <= self.player2_position[1] + self.player2_resize*self.player_size):
+                        self.player2_lifepoints -= 1
+                        self.player2_bullets.remove(bullet)
+                        break
+                        
+                    
+                        
+                    
+                        
+        
+	def player_takes_life(self,player):
+	
+		if(player > 0):
+			for i in range(0,self.life_size + 1):
+				if(self.life_position[0] + i >= self.player1_position[0] - self.player1_resize*self.player_size and self.life_position[0] + i <= self.player1_position[0] + self.player1_resize*self.player_size):
+					if (self.life_position[1] + i >= self.player1_position[1] - self.player1_resize*self.player_size and self.life_position[1] + i <= self.player1_position[1] + self.player1_resize*self.player_size):
+						self.player1_lifepoints += 1
+						return True
+				
+				if (self.life_position[0] - i >= self.player1_position[0] - self.player1_resize*self.player_size and self.life_position[0] - i <= self.player1_position[0] + self.player1_resize*self.player_size):
+					if (self.life_position[1] - i >= self.player1_position[1] - self.player1_resize*self.player_size and self.life_position[1] - i <= self.player1_position[1] + self.player1_resize*self.player_size):
+						self.player1_lifepoints += 1
+						return True
+		else:
+			for i in range(0,self.life_size + 1):
+				if(self.life_position[0] + i >= self.player2_position[0] - self.player2_resize*self.player_size and self.life_position[0] + i <= self.player2_position[0] + self.player2_resize*self.player_size):
+					if (self.life_position[1] + i >= self.player2_position[1] - self.player2_resize*self.player_size and self.life_position[1] + i <= self.player2_position[1] + self.player2_resize*self.player_size):
+						self.player2_lifepoints += 1
+						return True
+				
+				if (self.life_position[0] - i >= self.player2_position[0] - self.player2_resize*self.player_size and self.life_position[0] - i <= self.player2_position[0] + self.player2_resize*self.player_size):
+					if (self.life_position[1] - i >= self.player2_position[1] - self.player2_resize*self.player_size and self.life_position[1] - i <= self.player2_position[1] + self.player2_resize*self.player_size):
+						self.player2_lifepoints += 1
+						return True
+   
+		return False    
+			
+	def player_resize(self,player):
+		if(player > 0):
+			if (self.player1_resize == 1):
+				self.player1_resize = 2
+			else:
+				self.player1_resize = 1
+		else:
+			if (self.player2_resize == 1):
+				self.player2_resize = 2
+			else:
+				self.player2_resize = 1
                 
                 
         
