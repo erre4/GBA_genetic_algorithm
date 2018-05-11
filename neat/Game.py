@@ -8,7 +8,7 @@ class Game:
         def __init__(self,initial_population, total_population, n_inputs, n_outputs):
             
             self.total_population = total_population
-            self._initial_population = population
+            self.initial_population = population
             self.spec = Spec()
             self.genomes = []
             
