@@ -1,3 +1,4 @@
+import operator
 #class Game
 #initial_population: number of the initiatial population that will be mutated
 #total population: number of all the genomes after mutation including initial population
