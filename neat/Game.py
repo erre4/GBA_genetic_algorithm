@@ -271,28 +271,25 @@ class Game:
                     if(self.life_position[0] + i >= self.player1_position[0] - self.player1_resize*self.player_size and self.life_position[0] + i <= self.player1_position[0] + self.player1_resize*self.player_size):
                         if (self.life_position[1] + i >= self.player1_position[1] - self.player1_resize*self.player_size and self.life_position[1] + i <= self.player1_position[1] + self.player1_resize*self.player_size):
                             self.player1_lifepoints += 1
-                            self.life_position[0] = -1
-                            break
+                            return True
                     
                     if (self.life_position[0] - i >= self.player1_position[0] - self.player1_resize*self.player_size and self.life_position[0] - i <= self.player1_position[0] + self.player1_resize*self.player_size):
                         if (self.life_position[1] - i >= self.player1_position[1] - self.player1_resize*self.player_size and self.life_position[1] - i <= self.player1_position[1] + self.player1_resize*self.player_size):
                             self.player1_lifepoints += 1
-                            self.life_position[0] = -1
-                            break
+                            return True
             else:
                 for i in range(0,self.life_size + 1):
                     if(self.life_position[0] + i >= self.player2_position[0] - self.player2_resize*self.player_size and self.life_position[0] + i <= self.player2_position[0] + self.player2_resize*self.player_size):
                         if (self.life_position[1] + i >= self.player2_position[1] - self.player2_resize*self.player_size and self.life_position[1] + i <= self.player2_position[1] + self.player2_resize*self.player_size):
                             self.player2_lifepoints += 1
-                            self.life_position[0] = -1
-                            break
+                            return True
                     
                     if (self.life_position[0] - i >= self.player2_position[0] - self.player2_resize*self.player_size and self.life_position[0] - i <= self.player2_position[0] + self.player2_resize*self.player_size):
                         if (self.life_position[1] - i >= self.player2_position[1] - self.player2_resize*self.player_size and self.life_position[1] - i <= self.player2_position[1] + self.player2_resize*self.player_size):
                             self.player2_lifepoints += 1
-                            self.life_position[0] = -1
-                            break
-                
+                            return True
+       
+            return False    
                 
         def player_resize(self,player):
             if(player > 0):
