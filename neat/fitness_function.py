@@ -1,4 +1,3 @@
-import operator
 
 #speed_v is an array of len = number of victories each element i is the speed of the victory i (number of calls of the genomes to win)
 #speed_l is an array of len = number of losses each element i is the speed of the victory i (number of calls of the genomes to win)
