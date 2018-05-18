@@ -19,7 +19,7 @@ First, there's is ARM code, which is a set of 32bit instructions. Then there's T
 So, first of all you will need to download devkitARM (DKA), an ARM cross-compiler, based on the GCC toolchain.
 Then you will need of libgba, a set of basic types, macros and functions for use in GBA development.
 
-These two download are sufficient to compile the code.
+These two downloads are sufficient to compile the code.
 To run the code you will need of a gba emulator, i'm currently using VisualBoy advance.
 
 devkitARM is available for Mac, Windows and Linux, you can find it here:
