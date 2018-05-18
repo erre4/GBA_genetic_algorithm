@@ -42,6 +42,12 @@ When the download is finished you have to follow the istructions appearing on th
 This passage is not strictly necessary, but if you want a well made Makefile this passage could be useful.
 The .pl file already contains everything needed for compiling, even libgba
 
+To download VisualBoy:
+
+'''
+sudo apt-get install visualboyadvance-gtk
+'''
+
 Now you have your environment to compile and run .gba code!
 
 # The algorithm:
