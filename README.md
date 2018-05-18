@@ -44,9 +44,9 @@ The .pl file already contains everything needed for compiling, even libgba
 
 To download VisualBoy:
 
-'''
+```
 sudo apt-get install visualboyadvance-gtk
-'''
+```
 
 Now you have your environment to compile and run .gba code!
 
