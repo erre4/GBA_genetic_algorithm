@@ -28,19 +28,42 @@ devkitARM is available for Mac, Windows and Linux, you can find it here:
 - https://sourceforge.net/projects/devkitpro/
 
 
-I only tried the linux download and i raccomend to download the .pl file.
-
-for those who have downloaded the .pl file
-
-you can run it with:
+For linux users, open the terminal and paste these lines:
 
 ```
-perl devkitARMupdate.pl
+sudo mkdir -p /opt/devkitpro
+sudo chmod 777 /opt/devkitpro
 ```
 
-When the download is finished you have to follow the istructions appearing on the bash to save the paths of devkitpro and devkitArm.
-This passage is not strictly necessary, but if you want a well made Makefile this passage could be useful.
-The .pl file already contains everything needed for compiling, even libgba
+Download this file:
+
+- https://sourceforge.net/projects/devkitpro/files/devkitARM/devkitARM_r47/devkitARM_r47-x86_64-linux.tar.bz2/download
+
+and then,
+
+```
+cd /opt/devkitpro
+tar -xvjf <file you downloaded>
+```
+  
+after that download this file:
+
+- https://sourceforge.net/projects/devkitpro/files/libgba/0.5.0/libgba-0.5.0.tar.bz2/download
+
+and then in deviktpro folder:
+
+```
+mkdir libgba
+cd libgba
+tar -xvjf <libnds tarball>
+```
+  
+after that export the path of devkitPro and devkitARM
+
+```
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=$DEVKITPRO/devkitARM
+```
 
 To download VisualBoy:
 
