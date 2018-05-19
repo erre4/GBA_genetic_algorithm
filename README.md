@@ -2,7 +2,7 @@
 This report provides a simple code for a little 2Dshooting game runnable on a GBA emulator and devices supplied with gba cartridge readers.
 The enemy in the game has been trained with a NEAT algorithm on a computer.
 
-No sprite or tiles are used, but for the simplicity of the graphics has been used the mode_4
+No sprite or tiles are used, but for the simplicity of the graphics has been used the bit mode 4
 
 Work in progress...
 
@@ -17,7 +17,7 @@ The GBA runs on a ARM7tdmi RISC chip at 16.78 MHz (224 cycles/second). It is a 3
 First, there's is ARM code, which is a set of 32bit instructions. Then there's THUMB, which uses 16bit instructions. THUMB instructions are a subset of the ARM instruction set.
 
 So, first of all you will need to download devkitARM (DKA), an ARM cross-compiler, based on the GCC toolchain.
-Then you will need of libgba, a set of basic types, macros and functions for use in GBA development.
+Then you will need of libgba (not strictly necessary. however I recommend to download it if you want to develop for gba), a set of basic types, macros and functions for use in GBA development.
 
 These two downloads are sufficient to compile the code.
 To run the code you will need of a gba emulator, i'm currently using VisualBoy advance.
