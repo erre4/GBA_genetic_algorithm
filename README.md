@@ -35,7 +35,7 @@ for those who have downloaded the .pl file
 you can run it with:
 
 ```
-pearl devkitARMupdate.pl
+perl devkitARMupdate.pl
 ```
 
 When the download is finished you have to follow the istructions appearing on the bash to save the paths of devkitpro and devkitArm.
