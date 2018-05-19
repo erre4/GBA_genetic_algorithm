@@ -55,7 +55,7 @@ and then in deviktpro folder:
 ```
 mkdir libgba
 cd libgba
-tar -xvjf <libnds tarball>
+tar -xvjf <last file downloaded>
 ```
   
 after that export the path of devkitPro and devkitARM
