@@ -1,6 +1,3 @@
-#
-# A more complicated makefile
-
 # --- Project details -------------------------------------------------
 
 PROJ    := first
