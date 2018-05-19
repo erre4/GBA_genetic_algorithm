@@ -28,7 +28,7 @@ devkitARM is available for Mac, Windows and Linux, you can find it here:
 - https://sourceforge.net/projects/devkitpro/
 
 
-For linux users, open the terminal and paste these lines:
+For linux users, i raccomend thes operations, open the terminal and paste these lines:
 
 ```
 sudo mkdir -p /opt/devkitpro
@@ -46,7 +46,7 @@ cd /opt/devkitpro
 tar -xvjf <file you downloaded>
 ```
   
-after that download this file:
+after that, download this file:
 
 - https://sourceforge.net/projects/devkitpro/files/libgba/0.5.0/libgba-0.5.0.tar.bz2/download
 
