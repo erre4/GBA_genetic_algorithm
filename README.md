@@ -28,7 +28,7 @@ devkitARM is available for Mac, Windows and Linux, you can find it here:
 - https://sourceforge.net/projects/devkitpro/
 
 
-For linux users, i raccomend thes operations, open the terminal and paste these lines:
+For linux users, i raccomend thess operations, open the terminal and paste these lines:
 
 ```
 sudo mkdir -p /opt/devkitpro
