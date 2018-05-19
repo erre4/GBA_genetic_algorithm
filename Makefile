@@ -1,57 +1,51 @@
-#---------------------------------------------------------------------------------
-# Clear the implicit built in rules
-#---------------------------------------------------------------------------------
-.SUFFIXES:
-#---------------------------------------------------------------------------------
-ifeq ($(strip $(DEVKITARM)),)
-$(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM)
-endif
+#
+# A more complicated makefile
 
-include $(DEVKITARM)/gba_rules
+# --- Project details -------------------------------------------------
 
-#---------------------------------------------------------------------------------
-# TARGET is the name of the output, if this ends with _mb a multiboot image is generated
-# BUILD is the directory where object files & intermediate files will be placed
-# SOURCES is a list of directories containing source code
-# DATA is a list of directories containing data files
-# INCLUDES is a list of directories containing header files
-#---------------------------------------------------------------------------------
-TARGET      :=  $(shell basename $(CURDIR))
-BUILD       :=  build
-SOURCES     :=  source
-DATA        :=  
-INCLUDES    :=
+PROJ    := first
+TARGET  := $(PROJ)
 
-#---------------------------------------------------------------------------------
-# options for code generation
-#---------------------------------------------------------------------------------
-ARCH    :=  -mthumb -mthumb-interwork
+OBJS    := $(PROJ).o
 
-CFLAGS  :=  -g -Wall -O3\
-        -mcpu=arm7tdmi -mtune=arm7tdmi\
-        -fomit-frame-pointer\
-        -ffast-math \
-        $(ARCH)
+# --- Build defines ---------------------------------------------------
 
-CFLAGS  +=  $(INCLUDE)
+PREFIX  := $(DEVKITARM)/bin/arm-none-eabi-
+CC      := $(PREFIX)gcc
+LD      := $(PREFIX)gcc
+OBJCOPY := $(PREFIX)objcopy
 
-CXXFLAGS    :=  $(CFLAGS) -fno-rtti -fno-exceptions
+ARCH    := -mthumb-interwork -mthumb
+SPECS   := -specs=gba.specs
 
-ASFLAGS :=  $(ARCH)
-LDFLAGS  =   -g $(ARCH) -Wl,-Map,$(notdir $@).map
+CFLAGS  := $(ARCH) -O2 -Wall -fno-strict-aliasing
+LDFLAGS := $(ARCH) $(SPECS)
 
-#---------------------------------------------------------------------------------
-# path to tools - this can be deleted if you set the path to the toolchain in windows
-#---------------------------------------------------------------------------------
-export PATH :=  $(DEVKITARM)/bin:$(PATH)
 
-#---------------------------------------------------------------------------------
-# any extra libraries we wish to link with the project
-#---------------------------------------------------------------------------------
-LIBS    :=  -lgba
+.PHONY : build clean
 
-#---------------------------------------------------------------------------------
-# list of directories containing libraries, this must be the top level containing
-# include and lib
-#---------------------------------------------------------------------------------
-LIBDIRS :=  $(LIBGBA)
+# --- Build -----------------------------------------------------------
+# Build process starts here!
+build: $(TARGET).gba
+
+# Strip and fix header (step 3,4)
+$(TARGET).gba : $(TARGET).elf
+	$(OBJCOPY) -v -O binary $< $@
+	-@$(DEVKITARM)/bin/gbafix $@
+
+# Link (step 2)
+$(TARGET).elf : $(OBJS)
+	$(LD) $^ $(LDFLAGS) -o $@
+
+# Compile (step 1)
+$(OBJS) : %.o : %.c
+	$(CC) -c $< $(CFLAGS) -o $@
+		
+# --- Clean -----------------------------------------------------------
+
+clean : 
+	@rm -fv *.gba
+	@rm -fv *.elf
+	@rm -fv *.o
+
+#EOF
