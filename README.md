@@ -106,6 +106,9 @@ or, simply you can use the makefile. (it will work if you have correctly exporte
 ```
 make
 ```
+
+- Note: arm-none-eabi-gcc is in /opt/devkitPro/devkitARM/bin folder
+  
 # How to run .gba
 
 ```
