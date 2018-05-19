@@ -17,7 +17,7 @@ The GBA runs on a ARM7tdmi RISC chip at 16.78 MHz (224 cycles/second). It is a 3
 First, there's is ARM code, which is a set of 32bit instructions. Then there's THUMB, which uses 16bit instructions. THUMB instructions are a subset of the ARM instruction set.
 
 So, first of all you will need to download devkitARM (DKA), an ARM cross-compiler, based on the GCC toolchain.
-Then you will need of libgba (not strictly necessary. however I recommend to download it if you want to develop for gba), a set of basic types, macros and functions for use in GBA development.
+Then you will need of libgba (not strictly necessary, however i recommend to download it if you want to code for gba), a set of basic types, macros and functions for use in GBA development.
 
 These two downloads are sufficient to compile the code.
 To run the code you will need of a gba emulator, i'm currently using VisualBoy advance.
