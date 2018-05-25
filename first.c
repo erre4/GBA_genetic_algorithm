@@ -163,14 +163,18 @@ int main()
     /*THE LOCATION AT PALLETTE[1] = RED*/
     u16 *dst= (u16*)PALLETTE;
     dst[1] = RGB15(31, 0, 0);
-    
+    /*in somedevices such as ds lite somepixels aren't black so on first page:*/
+    m4_fully_rectangle(0,0,240,160,0);
+
     /*drawing a fully red rectangle on first page*/
     m4_fully_rectangle(x1,y1,x2,y2,1);
     
     /*pointing to the second page*/
     vid_page = vid_second_mem;
     
-    
+    /*on second page*/
+    m4_fully_rectangle(0,0,240,160,0);
+
     while(1){
         vid_vsync();
       
@@ -237,6 +241,31 @@ int main()
         else if(key_held(KEY_RIGHT) && x2<238){
             for(frame = 0; frame < FRAME; frame++);
             drawing_right(&x1, &x2, &y1, &y2, &k, RESIZE_HIT, RESIZE_FLAG);
+        }
+        
+        else{
+            if(RESIZE_HIT){
+                if(RESIZE_FLAG){
+                    
+                     x1 += PLAYER_SIZE/2;
+                     x2 -= PLAYER_SIZE/2;
+                     y1 += PLAYER_SIZE/2;
+                     y2 -= PLAYER_SIZE/2;
+
+
+                }
+                
+                else{
+                    x1 -= PLAYER_SIZE/2;
+                    x2 += PLAYER_SIZE/2;
+                    y1 -= PLAYER_SIZE/2;
+                    y2 += PLAYER_SIZE/2;
+
+                }
+                
+                RESIZE_FLAG ^= 1;
+
+            }
         }    
         
          
