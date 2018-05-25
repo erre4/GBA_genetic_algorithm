@@ -115,7 +115,7 @@ make
 gvba first.gba
 ```
 
-# Rules Game (gba commands not visual boy commands):
+# Game Rules (gba commands not visual boy commands):
 
 - ↑ | ↓ | → | ← := move the square
 - L + ↑ | L + ↓ | L + → | L + ← := become smaller
